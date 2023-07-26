@@ -1,0 +1,201 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<head>
+    <title>Đăng ký du học</title>
+    <link href="~/Content/css/nhs.css" rel="stylesheet" />
+</head>
+<body>
+    <main>
+
+        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+            </ul>
+            » <span class="breadcrumb_last" aria-current="page">Đăng ký du học</span>
+            <br />
+            <br />
+        </div>
+    </main>
+    <form>
+
+
+        <label for="">Bước 1</label><br />
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" placeholder="First name"><br>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Last name"><br><br>
+
+        <label for="truong">Trường đang học:</label>
+        <input type="text" id="truong" name="truong" placeholder="Tên trường"><br><br>
+
+        <label for="cccd">CCCD:</label>
+        <input type="number" id="cccd" name="cccd" placeholder="CCCD"><br>
+        <div class="gender-options">
+            <label for="">Giới tính:</label>
+            <input type="checkbox" value="nam" name="gt" id="nam" />
+            <label for="nam">Nam</label>
+
+            <input type="checkbox" value="nu" name="gt" id="nu" />
+            <label for="nu">Nữ</label>
+
+            <input type="checkbox" value="khac" name="gt" id="khac" />
+            <label for="khac">Khác</label><br>
+            <style>
+                .gender-options label,
+                .gender-options input {
+                    display: inline-block;
+                }
+            </style>
+        </div>
+
+        <label for="birthday">Năm sinh:</label>
+        <input type="date" id="birthday" name="birthday"><br />
+
+        <label for="email">Địa chỉ email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="">Trình độ học vấn:</label>
+        <select name="tdhv" id="">
+            <option value="Đại học">Đại học</option>
+            <option value="cd">Cao đẳng</option>
+            <option value="THPT">THPT</option>
+            <option value="Sau đại học">Sau đại học</option>
+            <option value="Khác">Khác</option>
+        </select><br>
+
+        <label for="">Địa chỉ:</label>
+        <textarea cols="40">
+</textarea><br />
+        <label for="">Nơi đến</label>
+        <select name="tdhv" id="">
+            <option value="Torquay">Torquay</option>
+            <option value="London">London</option>
+            <option value="Oxford">Oxford</option>
+            <option value="Manchester">Manchester</option>
+            <option value="Ireland">Ireland</option>
+        </select><br>
+
+        <div class="itemform_tvdkdhoc">
+            <label for="">Ngày bắt đầu</label>
+            <span class="ngay"><input type="date" name="date" value="" size="40" placeholder="Ngày bắt đầu"></span>
+        </div>
+        <label for="">Bước 2</label><br />
+        <label for="">Giấy tờ yêu cầu bởi Đại Sứ Quán:</label><br />
+        <label for="">Giấy tờ yêu cầu bởi Đại Sứ Quán:</label><br />
+        <input type="checkbox" id="passport" name="giayto" value="Hộ chiếu/ Passport bản gốc (còn hiệu lực ít nhất trên 6 tháng)">
+        <label for="passport">Hộ chiếu/ Passport bản gốc (còn hiệu lực ít nhất trên 6 tháng)</label><br>
+        <input type="checkbox" id="thumoi" name="giayto" value="Thư mời nhập học bản gốc (I-20)">
+        <label for="thumoi">Thư mời nhập học bản gốc (I-20)</label><br>
+        <input type="checkbox" id="giayxacnhan" name="giayto" value="Giấy xác nhận cuộc hẹn (Giấy này có được sau khi đã nộp phí và set lịch hẹn trên trang web của Đại Sứ Quán).">
+        <label for="giayxacnhan">Giấy xác nhận cuộc hẹn (Giấy này có được sau khi đã nộp phí và set lịch hẹn trên trang web của Đại Sứ Quán).</label><br>
+        <input type="checkbox" id="bienlai" name="giayto" value="Biên lai phí an ninh SEVIS">
+        <label for="bienlai">Biên lai phí an ninh SEVIS</label><br>
+        <input type="checkbox" id="ds160" name="giayto" value="Giấy xác nhận đã hoàn thành đơn DS-160">
+        <label for="ds160">Giấy xác nhận đã hoàn thành đơn DS-160</label><br>
+        <input type="checkbox" id="anh5x5" name="giayto" value="1 tấm hình 5×5 kẹp bên góc trái tờ xác nhận DS-160">
+        <label for="anh5x5">1 tấm hình 5×5 kẹp bên góc trái tờ xác nhận DS-160</label><br>
+        <input type="checkbox" id="yeucaukhac" name="giayto" value="Tùy thuộc vào hồ sơ, có thể có thêm những yêu cầu giấy tờ khác">
+        <label for="yeucaukhac">Tùy thuộc vào hồ sơ, có thể có thêm những yêu cầu giấy tờ khác</label><br>
+
+        <label for="">Giấy tờ cá nhân cần phải chuẩn bị:</label><br />
+        <input type="checkbox" id="giaykhaibinh" name="giayto" value="Giấy khai sinh bản gốc">
+        <label for="giaykhaibinh">Giấy khai sinh bản gốc</label><br>
+        <input type="checkbox" id="sohokhau" name="giayto" value="Sổ hộ khẩu">
+        <label for="sohokhau">Sổ hộ khẩu</label><br>
+        <input type="checkbox" id="passport" name="giayto" value="Hộ chiếu/ Passport">
+        <label for="passport">Hộ chiếu/ Passport</label><br>
+        <input type="checkbox" id="hocba" name="giayto" value="Học bạ và bảng điểm của tất cả các năm học">
+        <label for="hocba">Học bạ và bảng điểm của tất cả các năm học</label><br>
+        <input type="checkbox" id="bangtotnghiep" name="giayto" value="Bằng tốt nghiệp tất cả các cấp">
+        <label for="bangtotnghiep">Bằng tốt nghiệp tất cả các cấp</label><br>
+        <input type="checkbox" id="giayxacnhanhs" name="giayto" value="Giấy xác nhận học sinh, sinh viên (nếu còn đang đi học)">
+        <label for="giayxacnhanhs">Giấy xác nhận học sinh, sinh viên (nếu còn đang đi học)</label><br>
+        <input type="checkbox" id="chungchitienganh" name="giayto" value="Chứng chỉ tiếng Anh (IELTS, TOEIC, TOEFL, PTE,…)">
+        <label for="chungchitienganh">Chứng chỉ tiếng Anh (IELTS, TOEIC, TOEFL, PTE,…)</label><br />
+        <input type="checkbox" id="chungchidb" name="giayto" value="Chứng chỉ đặc biệt (SAT/ ACT, GMAT/GRE,…)">
+        <label for="chungchidb">Chứng chỉ đặc biệt (SAT/ ACT, GMAT/GRE,…)</label><br />
+
+        <label for="">Hồ sơ tài chính:</label><br />
+        <input type="checkbox" id="sotietkiem" name="giayto" value="Sổ tiết kiệm, giấy xác nhận số dư tài khoản ngân hàng">
+        <label for="sotietkiem">Sổ tiết kiệm, giấy xác nhận số dư tài khoản ngân hàng</label><br>
+        <input type="checkbox" id="giaychungnhan" name="giayto" value="Giấy chứng nhận quyền sở hữu và sử dụng nhà đất, giấy tờ sở hữu xe máy hay các phương tiện khác.">
+        <label for="giaychungnhan">Giấy chứng nhận quyền sở hữu và sử dụng nhà đất, giấy tờ sở hữu xe máy hay các phương tiện khác.</label><br>
+        <input type="checkbox" id="dangkykinhdoanh" name="giayto" value="Giấy tờ đăng ký kinh doanh nếu bạn là chủ doanh nghiệp, nếu là nhân viên thì cần hợp đồng lao động">
+        <label for="dangkykinhdoanh">Giấy tờ đăng ký kinh doanh nếu bạn là chủ doanh nghiệp, nếu là nhân viên thì cần hợp đồng lao động</label><br>
+        <input type="checkbox" id="dongthue" name="giayto" value="Giấy tờ đóng thuế kinh doanh, nhà đất hoặc đóng thuế thu nhập cá nhân.">
+        <label for="dongthue">Giấy tờ đóng thuế kinh doanh, nhà đất hoặc đóng thuế thu nhập cá nhân.</label><br>
+        <input type="checkbox" id="hopdongkinhte" name="giayto" value="Các hợp đồng kinh tế (cho thuê nhà/ đất, mua bán sản phẩm,…), hợp đồng góp vốn,...">
+        <label for="hopdongkinhte">Các hợp đồng kinh tế (cho thuê nhà/ đất, mua bán sản phẩm,…), hợp đồng góp vốn,...</label><br>
+
+        <input type="checkbox" id="gtkhac" name="gtkhac" value="Giấy tờ chứng minh các nguồn thu khác (nếu có)">
+        <label for="gtkhac">Giấy tờ chứng minh các nguồn thu khác (nếu có)</label><br><br />
+        <div class="checkbox">
+            <label><input type="checkbox"> Xác nhận hoàn thành đăng ký</label>
+        </div>
+        <button type="submit" class="btn btn-default">Đăng ký</button>
+        <button type="reset">Reset</button>
+    </form>
+
+
+
+
+</body>
+<style>
+    form {
+        font-family: Arial, sans-serif;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="date"],
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+
+
+        form button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            form button[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+        form button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            form button[type="reset"]:hover {
+                background-color: #e53935;
+            }
+</style>

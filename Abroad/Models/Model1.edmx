@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="duhocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advertisements">
+          <Key>
+            <PropertyRef Name="AdID" />
+          </Key>
+          <Property Name="AdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="255" />
+          <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Content" Type="text" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="StatusAd" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConsultationAppointments">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="NumberphoneCon" Type="char" MaxLength="10" />
+          <Property Name="ConsultantID" Type="int" />
+          <Property Name="ServiceID" Type="int" />
+          <Property Name="DateAndTime" Type="datetime" Nullable="false" />
+          <Property Name="StatusCon" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCoun" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DescriptionCoun" Type="text" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="Content" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ForumPosts">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Content" Type="text" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+        </EntityType>
+        <EntityType Name="PhanQuyen">
+          <Key>
+            <PropertyRef Name="IDQuyen" />
+          </Key>
+          <Property Name="IDQuyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenQuyen" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="ProfileID" />
+          </Key>
+          <Property Name="ProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImgPro" Type="varchar" MaxLength="255" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="AddressP" Type="varchar" MaxLength="255" />
+          <Property Name="EmailP" Type="text" />
+          <Property Name="EducationLevel" Type="varchar" MaxLength="100" />
+          <Property Name="Major" Type="varchar" MaxLength="100" />
+          <Property Name="UniversityID" Type="int" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Scholarships">
+          <Key>
+            <PropertyRef Name="ScholarshipID" />
+          </Key>
+          <Property Name="ScholarshipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSch" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DescriptionSch" Type="text" />
+          <Property Name="UniversityID" Type="int" />
+        </EntityType>
+        <EntityType Name="Serv">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameServ" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DescriptionServ" Type="text" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Dienthoai" Type="varchar" MaxLength="50" />
+          <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+          <Property Name="IDQuyen" Type="int" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TimeSheets">
+          <Key>
+            <PropertyRef Name="TimeSheetID" />
+          </Key>
+          <Property Name="TimeSheetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="ServiceID" Type="int" />
+          <Property Name="WorkDate" Type="date" Nullable="false" />
+          <Property Name="HoursWorked" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Universities">
+          <Key>
+            <PropertyRef Name="UniversityID" />
+          </Key>
+          <Property Name="UniversityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameUni" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="DescriptionUni" Type="text" />
+        </EntityType>
+        <Association Name="FK__Advertise__MaNgu__5DCAEF64">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="Advertisements" Type="Self.Advertisements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="Advertisements">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consultat__MaNgu__6477ECF3">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="ConsultationAppointments" Type="Self.ConsultationAppointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="ConsultationAppointments">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__MaNguo__5AEE82B9">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumPost__MaNgu__5812160E">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profiles__MaNguo__619B8048">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profiles__Univer__60A75C0F">
+          <End Role="Universities" Type="Self.Universities" Multiplicity="0..1" />
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="UniversityID" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Scholarsh__Unive__5535A963">
+          <End Role="Universities" Type="Self.Universities" Multiplicity="0..1" />
+          <End Role="Scholarships" Type="Self.Scholarships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="UniversityID" />
+            </Principal>
+            <Dependent Role="Scholarships">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaiKhoan__IDQuye__4BAC3F29">
+          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhanQuyen">
+              <PropertyRef Name="IDQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="IDQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeSheet__MaNgu__6754599E">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="TimeSheets" Type="Self.TimeSheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="TimeSheets">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeSheet__Servi__68487DD7">
+          <End Role="Serv" Type="Self.Serv" Multiplicity="0..1" />
+          <End Role="TimeSheets" Type="Self.TimeSheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serv">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="TimeSheets">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Universit__Count__5070F446">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="Universities" Type="Self.Universities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Universities">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="duhocModelStoreContainer">
+          <EntitySet Name="Advertisements" EntityType="Self.Advertisements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConsultationAppointments" EntityType="Self.ConsultationAppointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumPosts" EntityType="Self.ForumPosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scholarships" EntityType="Self.Scholarships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Serv" EntityType="Self.Serv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSheets" EntityType="Self.TimeSheets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Universities" EntityType="Self.Universities" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Advertise__MaNgu__5DCAEF64" Association="Self.FK__Advertise__MaNgu__5DCAEF64">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="Advertisements" EntitySet="Advertisements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consultat__MaNgu__6477ECF3" Association="Self.FK__Consultat__MaNgu__6477ECF3">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="ConsultationAppointments" EntitySet="ConsultationAppointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__MaNguo__5AEE82B9" Association="Self.FK__Feedback__MaNguo__5AEE82B9">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumPost__MaNgu__5812160E" Association="Self.FK__ForumPost__MaNgu__5812160E">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profiles__MaNguo__619B8048" Association="Self.FK__Profiles__MaNguo__619B8048">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profiles__Univer__60A75C0F" Association="Self.FK__Profiles__Univer__60A75C0F">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Scholarsh__Unive__5535A963" Association="Self.FK__Scholarsh__Unive__5535A963">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Scholarships" EntitySet="Scholarships" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaiKhoan__IDQuye__4BAC3F29" Association="Self.FK__TaiKhoan__IDQuye__4BAC3F29">
+            <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeSheet__MaNgu__6754599E" Association="Self.FK__TimeSheet__MaNgu__6754599E">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="TimeSheets" EntitySet="TimeSheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeSheet__Servi__68487DD7" Association="Self.FK__TimeSheet__Servi__68487DD7">
+            <End Role="Serv" EntitySet="Serv" />
+            <End Role="TimeSheets" EntitySet="TimeSheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Universit__Count__5070F446" Association="Self.FK__Universit__Count__5070F446">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Universities" EntitySet="Universities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="duhocModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdID" />
+          </Key>
+          <Property Name="AdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StatusAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__Advertise__MaNgu__5DCAEF64" FromRole="Advertisements" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="ConsultationAppointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="NumberphoneCon" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ConsultantID" Type="Int32" />
+          <Property Name="ServiceID" Type="Int32" />
+          <Property Name="DateAndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatusCon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__Consultat__MaNgu__6477ECF3" FromRole="ConsultationAppointments" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCoun" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescriptionCoun" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Universities" Relationship="Self.FK__Universit__Count__5070F446" FromRole="Countries" ToRole="Universities" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__Feedback__MaNguo__5AEE82B9" FromRole="Feedback" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="ForumPost">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__ForumPost__MaNgu__5812160E" FromRole="ForumPosts" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="PhanQuyen">
+          <Key>
+            <PropertyRef Name="IDQuyen" />
+          </Key>
+          <Property Name="IDQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenQuyen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK__TaiKhoan__IDQuye__4BAC3F29" FromRole="PhanQuyen" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ProfileID" />
+          </Key>
+          <Property Name="ProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImgPro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AddressP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EmailP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EducationLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UniversityID" Type="Int32" />
+          <Property Name="TrangThai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__Profiles__MaNguo__619B8048" FromRole="Profiles" ToRole="TaiKhoan" />
+          <NavigationProperty Name="University" Relationship="Self.FK__Profiles__Univer__60A75C0F" FromRole="Profiles" ToRole="Universities" />
+        </EntityType>
+        <EntityType Name="Scholarship">
+          <Key>
+            <PropertyRef Name="ScholarshipID" />
+          </Key>
+          <Property Name="ScholarshipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSch" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescriptionSch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UniversityID" Type="Int32" />
+          <NavigationProperty Name="University" Relationship="Self.FK__Scholarsh__Unive__5535A963" FromRole="Scholarships" ToRole="Universities" />
+        </EntityType>
+        <EntityType Name="Serv">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameServ" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescriptionServ" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TimeSheets" Relationship="Self.FK__TimeSheet__Servi__68487DD7" FromRole="Serv" ToRole="TimeSheets" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dienthoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDQuyen" Type="Int32" />
+          <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisements" Relationship="Self.FK__Advertise__MaNgu__5DCAEF64" FromRole="TaiKhoan" ToRole="Advertisements" />
+          <NavigationProperty Name="ConsultationAppointments" Relationship="Self.FK__Consultat__MaNgu__6477ECF3" FromRole="TaiKhoan" ToRole="ConsultationAppointments" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__MaNguo__5AEE82B9" FromRole="TaiKhoan" ToRole="Feedback" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FK__ForumPost__MaNgu__5812160E" FromRole="TaiKhoan" ToRole="ForumPosts" />
+          <NavigationProperty Name="PhanQuyen" Relationship="Self.FK__TaiKhoan__IDQuye__4BAC3F29" FromRole="TaiKhoan" ToRole="PhanQuyen" />
+          <NavigationProperty Name="Profiles" Relationship="Self.FK__Profiles__MaNguo__619B8048" FromRole="TaiKhoan" ToRole="Profiles" />
+          <NavigationProperty Name="TimeSheets" Relationship="Self.FK__TimeSheet__MaNgu__6754599E" FromRole="TaiKhoan" ToRole="TimeSheets" />
+        </EntityType>
+        <EntityType Name="TimeSheet">
+          <Key>
+            <PropertyRef Name="TimeSheetID" />
+          </Key>
+          <Property Name="TimeSheetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="ServiceID" Type="Int32" />
+          <Property Name="WorkDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HoursWorked" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Serv" Relationship="Self.FK__TimeSheet__Servi__68487DD7" FromRole="TimeSheets" ToRole="Serv" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__TimeSheet__MaNgu__6754599E" FromRole="TimeSheets" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="UniversityID" />
+          </Key>
+          <Property Name="UniversityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameUni" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="DescriptionUni" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Universit__Count__5070F446" FromRole="Universities" ToRole="Countries" />
+          <NavigationProperty Name="Profiles" Relationship="Self.FK__Profiles__Univer__60A75C0F" FromRole="Universities" ToRole="Profiles" />
+          <NavigationProperty Name="Scholarships" Relationship="Self.FK__Scholarsh__Unive__5535A963" FromRole="Universities" ToRole="Scholarships" />
+        </EntityType>
+        <Association Name="FK__Advertise__MaNgu__5DCAEF64">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="Advertisements" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="Advertisements">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consultat__MaNgu__6477ECF3">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="ConsultationAppointments" Type="Self.ConsultationAppointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="ConsultationAppointments">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Universit__Count__5070F446">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Universities" Type="Self.University" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Universities">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__MaNguo__5AEE82B9">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumPost__MaNgu__5812160E">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaiKhoan__IDQuye__4BAC3F29">
+          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhanQuyen">
+              <PropertyRef Name="IDQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="IDQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profiles__MaNguo__619B8048">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profiles__Univer__60A75C0F">
+          <End Role="Universities" Type="Self.University" Multiplicity="0..1" />
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="UniversityID" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Scholarsh__Unive__5535A963">
+          <End Role="Universities" Type="Self.University" Multiplicity="0..1" />
+          <End Role="Scholarships" Type="Self.Scholarship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="UniversityID" />
+            </Principal>
+            <Dependent Role="Scholarships">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeSheet__Servi__68487DD7">
+          <End Role="Serv" Type="Self.Serv" Multiplicity="0..1" />
+          <End Role="TimeSheets" Type="Self.TimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serv">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="TimeSheets">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeSheet__MaNgu__6754599E">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="TimeSheets" Type="Self.TimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="MaNguoiDung" />
+            </Principal>
+            <Dependent Role="TimeSheets">
+              <PropertyRef Name="MaNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="duhocEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advertisements" EntityType="Self.Advertisement" />
+          <EntitySet Name="ConsultationAppointments" EntityType="Self.ConsultationAppointment" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="ForumPosts" EntityType="Self.ForumPost" />
+          <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="Scholarships" EntityType="Self.Scholarship" />
+          <EntitySet Name="Servs" EntityType="Self.Serv" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <EntitySet Name="TimeSheets" EntityType="Self.TimeSheet" />
+          <EntitySet Name="Universities" EntityType="Self.University" />
+          <AssociationSet Name="FK__Advertise__MaNgu__5DCAEF64" Association="Self.FK__Advertise__MaNgu__5DCAEF64">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="Advertisements" EntitySet="Advertisements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consultat__MaNgu__6477ECF3" Association="Self.FK__Consultat__MaNgu__6477ECF3">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="ConsultationAppointments" EntitySet="ConsultationAppointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Universit__Count__5070F446" Association="Self.FK__Universit__Count__5070F446">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Universities" EntitySet="Universities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__MaNguo__5AEE82B9" Association="Self.FK__Feedback__MaNguo__5AEE82B9">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumPost__MaNgu__5812160E" Association="Self.FK__ForumPost__MaNgu__5812160E">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaiKhoan__IDQuye__4BAC3F29" Association="Self.FK__TaiKhoan__IDQuye__4BAC3F29">
+            <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profiles__MaNguo__619B8048" Association="Self.FK__Profiles__MaNguo__619B8048">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profiles__Univer__60A75C0F" Association="Self.FK__Profiles__Univer__60A75C0F">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Scholarsh__Unive__5535A963" Association="Self.FK__Scholarsh__Unive__5535A963">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Scholarships" EntitySet="Scholarships" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeSheet__Servi__68487DD7" Association="Self.FK__TimeSheet__Servi__68487DD7">
+            <End Role="Serv" EntitySet="Servs" />
+            <End Role="TimeSheets" EntitySet="TimeSheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeSheet__MaNgu__6754599E" Association="Self.FK__TimeSheet__MaNgu__6754599E">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="TimeSheets" EntitySet="TimeSheets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="duhocModelStoreContainer" CdmEntityContainer="duhocEntities">
+          <EntitySetMapping Name="Advertisements">
+            <EntityTypeMapping TypeName="duhocModel.Advertisement">
+              <MappingFragment StoreEntitySet="Advertisements">
+                <ScalarProperty Name="AdID" ColumnName="AdID" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="StatusAd" ColumnName="StatusAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsultationAppointments">
+            <EntityTypeMapping TypeName="duhocModel.ConsultationAppointment">
+              <MappingFragment StoreEntitySet="ConsultationAppointments">
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="NumberphoneCon" ColumnName="NumberphoneCon" />
+                <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="DateAndTime" ColumnName="DateAndTime" />
+                <ScalarProperty Name="StatusCon" ColumnName="StatusCon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="duhocModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="NameCoun" ColumnName="NameCoun" />
+                <ScalarProperty Name="DescriptionCoun" ColumnName="DescriptionCoun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="duhocModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumPosts">
+            <EntityTypeMapping TypeName="duhocModel.ForumPost">
+              <MappingFragment StoreEntitySet="ForumPosts">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanQuyens">
+            <EntityTypeMapping TypeName="duhocModel.PhanQuyen">
+              <MappingFragment StoreEntitySet="PhanQuyen">
+                <ScalarProperty Name="IDQuyen" ColumnName="IDQuyen" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="duhocModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ImgPro" ColumnName="ImgPro" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="AddressP" ColumnName="AddressP" />
+                <ScalarProperty Name="EmailP" ColumnName="EmailP" />
+                <ScalarProperty Name="EducationLevel" ColumnName="EducationLevel" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scholarships">
+            <EntityTypeMapping TypeName="duhocModel.Scholarship">
+              <MappingFragment StoreEntitySet="Scholarships">
+                <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+                <ScalarProperty Name="NameSch" ColumnName="NameSch" />
+                <ScalarProperty Name="DescriptionSch" ColumnName="DescriptionSch" />
+                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servs">
+            <EntityTypeMapping TypeName="duhocModel.Serv">
+              <MappingFragment StoreEntitySet="Serv">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="NameServ" ColumnName="NameServ" />
+                <ScalarProperty Name="DescriptionServ" ColumnName="DescriptionServ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="duhocModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Dienthoai" ColumnName="Dienthoai" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="IDQuyen" ColumnName="IDQuyen" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSheets">
+            <EntityTypeMapping TypeName="duhocModel.TimeSheet">
+              <MappingFragment StoreEntitySet="TimeSheets">
+                <ScalarProperty Name="TimeSheetID" ColumnName="TimeSheetID" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="HoursWorked" ColumnName="HoursWorked" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="duhocModel.University">
+              <MappingFragment StoreEntitySet="Universities">
+                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+                <ScalarProperty Name="NameUni" ColumnName="NameUni" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="DescriptionUni" ColumnName="DescriptionUni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

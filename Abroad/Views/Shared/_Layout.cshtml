@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewBag.Title - Wed du học</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/css/general.css" />
+    <link rel="stylesheet" href="~/Content/css/style.css" />
+
+    <script type="module"
+            src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule=""
+            src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <title>SAC - Study abroad </title>
+    <link rel="icon" type="image/x-icon" href="~/Content/img/favicon.png">
+
+    <div class="header1">
+        <a href="#">
+            <img class="logo" alt="Omni logo" src="~/Content/img/favicon.png" />
+        </a>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li class="main-nav-link"> @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link">@Html.ActionLink("Danh sách trường học", "Index", "Categories", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link"> @Html.ActionLink("Đăng kí tư vấn", "Index", "DKTuVan", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link"> @Html.ActionLink("Nộp hồ sơ", "Index", "DKDuHoc", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link "> @Html.ActionLink("Dịch vụ", "Index", "#", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link "> @Html.ActionLink("Diễn đàn", "Index", "#", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link "> @Html.ActionLink("Liên hệ", "Index", "#", new { area = "" }, new { @class = "black" })</li>
+                <li class="main-nav-link">
+                    @Html.ActionLink("Đăng nhập", "Index", "#", new { @class = "red-button" })
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+@RenderBody()
+<footer class="footer">
+    <div class="container1 grid grid--footer">
+        <div class="logo-col">
+            <a href="#" class="footer-logo">
+                <img class="logo" alt="Omnifood logo" src="~/Content/img/favicon.png" />
+            </a>
+
+            <ul class="social-links">
+                <li>
+                    <a class="footer-link" href="#">
+                        <ion-icon class="social-icon" name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link" href="#">
+                        <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a class="footer-link" href="#">
+                        <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="address-col">
+            <p class="footer-heading">Contact us</p>
+            <address class="contacts">
+                <p class="address">
+                    623 Harrison St., 2nd Floor, San Francisco, CA 94107
+                </p>
+                <p>
+                    <a class="footer-link" href="tel:415-201-6370">415-201-6370</a><br />
+                    <a class="footer-link" href="mailto:hello@omni.com">hello@omni.com</a>
+                </p>
+            </address>
+        </div>
+        <nav class="nav-col">
+            <p class="footer-heading">Account</p>
+            <ul class="footer-nav">
+                <li><a class="footer-link" href="#">Create account</a></li>
+                <li><a class="footer-link" href="#">Sign in</a></li>
+                <li><a class="footer-link" href="#">iOS app</a></li>
+                <li><a class="footer-link" href="#">Android app</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav-col">
+            <p class="footer-heading">Company</p>
+            <ul class="footer-nav">
+                <li><a class="footer-link" href="#">About Omni</a></li>
+                <li><a class="footer-link" href="#">For Business</a></li>
+                <li><a class="footer-link" href="#">Finding partners</a></li>
+                <li><a class="footer-link" href="#">Careers</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav-col">
+            <p class="footer-heading">Resources</p>
+            <ul class="footer-nav">
+                <li><a class="footer-link" href="#">Programs directory </a></li>
+                <li><a class="footer-link" href="#">Help center</a></li>
+                <li><a class="footer-link" href="#">Privacy & terms</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</html>
